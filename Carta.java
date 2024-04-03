@@ -4,60 +4,57 @@ public class Carta extends Correo{
 
     private String formato;
     private double precioVenta;
-    private int peso;
-    private boolean esExpress;
-    private String direccion;
 
-    public Carta(int peso, boolean esExpress, String direccion) {
-        super(peso, esExpress, direccion);
-        this.peso = peso;
-        this.esExpress = esExpress;
-        this.direccion = direccion;
+    public Carta(int peso, boolean esExpress, String direccion, boolean esNoValido, String formato, double precioVenta) {
+        super(peso, esExpress, direccion, esNoValido);
+        this.formato = formato;
+        this.precioVenta = precioVenta;
     }
 
-    public void setPeso(int peso) {
-        this.peso = peso;
-    }
-
-    public void setEsExpress(boolean esExpress) {
-        this.esExpress = esExpress;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setFormato(String formato) {
+        this.formato = formato;
     }
 
     public String getFormato() {
         return formato;
     }
 
+    public void setPrecioVenta(double precioVenta) {
+        this.precioVenta = precioVenta;
+    }
+
     public double getPrecioVenta() {
         return precioVenta;
     }
 
-    public int getPeso() {
-        return peso;
-    }
-
-    public boolean getEsExpress() {
-        return esExpress;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
     @Override
     public double calculateImporteTotal() {
-        return 0;
+        double total = 0;
+        switch (formato) {
+            case "A3":
+            total += (getPrecioVenta()+10);
+                break;
+            case "A4":
+            total += (getPrecioVenta()+20);
+                break;
+            case "A5":
+            total += (getPrecioVenta()+30);
+                break;
+            default:
+                break;
+        }
+        return total;
     }
 
     @Override
     public void verDetalle() {
-        System.out.println("Detalle de carta:");
+        System.out.println("\nDetalle de carta:");
         System.out.println("Peso: " + getPeso());
         System.out.println("Es Express: " + isEsExpress());
         System.out.println("Dirección: " + getDireccion());
+        System.out.println("Validez: " + isEsNoValido());
+        System.out.println("Dirección: " + getFormato());
+        System.out.println("Dirección: " + getPrecioVenta());
     }
 
 }

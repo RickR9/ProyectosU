@@ -6,26 +6,12 @@ public abstract class Correo {
     private boolean esExpress;
     private String direccion;
     private boolean esNoValido;
-    private Anuncio anuncio;
-    private Carta carta;
-    private Paquete paquete;
     
-    public Correo(int peso, boolean esExpress, String direccion) {
+    public Correo(int peso, boolean esExpress, String direccion, boolean esNoValido) {
         this.peso = peso;
         this.esExpress = esExpress;
         this.direccion = direccion;
-    }
-
-    public void setAnuncio(Anuncio anuncio) {
-        this.anuncio = anuncio;
-    }
-
-    public void setCarta(Carta carta) {
-        this.carta = carta;
-    }
-
-    public void setPaquete(Paquete paquete) {
-        this.paquete = paquete;
+        this.esNoValido = esNoValido;
     }
     
     public void setPeso(int peso) {
@@ -54,18 +40,6 @@ public abstract class Correo {
 
     public boolean isEsNoValido() {
         return esNoValido;
-    }
-
-    public Anuncio getAnuncio() {
-        return anuncio;
-    }
-
-    public Carta getCarta() {
-        return carta;
-    }
-
-    public Paquete getPaquete() {
-        return paquete;
     }
 
     public abstract double calculateImporteTotal();

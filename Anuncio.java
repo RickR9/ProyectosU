@@ -3,56 +3,34 @@ package S2.AC3;
 public class Anuncio extends Correo{
 
     private double precioVenta;
-    private int peso;
-    private boolean esExpress;
-    private String direccion;
 
-    public Anuncio(int peso, boolean esExpress, String direccion) {
-        super(peso, esExpress, direccion);
-        this.peso = peso;
-        this.esExpress = esExpress;
-        this.direccion = direccion;
+    public Anuncio(int peso, boolean esExpress, String direccion, boolean esNoValido, double precioVenta) {
+        super(peso, esExpress, direccion, esNoValido);
+        this.precioVenta = precioVenta;
     }
 
-    public void setPeso(int peso) {
-        this.peso = peso;
-    }
-
-    public void setEsExpress(boolean esExpress) {
-        this.esExpress = esExpress;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setPrecioVenta(double precioVenta) {
+        this.precioVenta = precioVenta;
     }
 
     public double getPrecioVenta() {
         return precioVenta;
     }
 
-    public int getPeso() {
-        return peso;
-    }
-
-    public boolean getEsExpress() {
-        return esExpress;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
     @Override
     public double calculateImporteTotal() {
-        return 0;
+        double respuesta = 0;
+        respuesta += getPrecioVenta();
+        return respuesta;
     }
 
     @Override
     public void verDetalle() {
-        System.out.println("Detalle de anuncio:");
+        System.out.println("\nDetalle de anuncio:");
         System.out.println("Peso: " + getPeso());
         System.out.println("Es Express: " + isEsExpress());
         System.out.println("Dirección: " + getDireccion());
+        System.out.println("Validez: " + isEsNoValido());
+        System.out.println("Dirección: " + getPrecioVenta());
     }
-
 }

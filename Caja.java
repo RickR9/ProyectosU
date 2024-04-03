@@ -37,7 +37,7 @@ public class Caja {
 
         int ce = 0;
         for (Correo correo : correos){
-            if (correo.isEsNoValido()) {
+            if (correo.isEsNoValido()==false) {
                 ce++;
             }
         }

@@ -4,59 +4,46 @@ public class Paquete extends Correo{
 
     private double precioVenta;
     private double volumen;
-    private int peso;
-    private boolean esExpress;
-    private String direccion;
 
-    public Paquete(int peso, boolean esExpress, String direccion) {
-        super(peso, esExpress, direccion);
-        this.peso = peso;
-        this.esExpress = esExpress;
-        this.direccion = direccion;
+
+    public Paquete(int peso, boolean esExpress, String direccion, boolean esNoValido, double precioVenta, double volumen) {
+        super(peso, esExpress, direccion, esNoValido);
+        this.precioVenta = precioVenta;
+        this.volumen = volumen;
     }
 
-    public void setPeso(int peso) {
-        this.peso = peso;
-    }
-
-    public void setEsExpress(boolean esExpress) {
-        this.esExpress = esExpress;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setPrecioVenta(double precioVenta) {
+        this.precioVenta = precioVenta;
     }
 
     public double getPrecioVenta() {
         return precioVenta;
+    }
+    
+    public void setVolumen(double volumen) {
+        this.volumen = volumen;
     }
 
     public double getVolumen() {
         return volumen;
     }
 
-    public int getPeso() {
-        return peso;
-    }
-
-    public boolean getEsExpress() {
-        return esExpress;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
     @Override
     public double calculateImporteTotal() {
-        return 0;
+        double venta = 0;
+        venta += (getPrecioVenta()*getVolumen());
+        return venta;
     }
 
     @Override
     public void verDetalle() {
-        System.out.println("Detalle de paquete:");
+        System.out.println("\nDetalle de paquete:");
         System.out.println("Peso: " + getPeso());
         System.out.println("Es Express: " + isEsExpress());
         System.out.println("Dirección: " + getDireccion());
-}
-}
+        System.out.println("Validez: " + isEsNoValido());
+        System.out.println("Dirección: " + getPrecioVenta());
+        System.out.println("Validez: " + getVolumen() + " cm^3");
+        }
+
+    }
