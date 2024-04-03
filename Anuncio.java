@@ -31,6 +31,6 @@ public class Anuncio extends Correo{
         System.out.println("Es Express: " + isEsExpress());
         System.out.println("Dirección: " + getDireccion());
         System.out.println("Validez: " + isEsNoValido());
-        System.out.println("Dirección: " + getPrecioVenta());
+        System.out.println("Precio: " + getPrecioVenta());
     }
 }
