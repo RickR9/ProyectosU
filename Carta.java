@@ -31,15 +31,22 @@ public class Carta extends Correo{
     public double calculateImporteTotal() {
         double total = 0;
         switch (formato) {
+            case "A2":
+            total += getPrecioVenta();
+                break;
+
             case "A3":
             total += (getPrecioVenta()+10);
                 break;
+
             case "A4":
             total += (getPrecioVenta()+20);
                 break;
+
             case "A5":
             total += (getPrecioVenta()+30);
                 break;
+                
             default:
                 break;
         }
@@ -53,8 +60,8 @@ public class Carta extends Correo{
         System.out.println("Es Express: " + isEsExpress());
         System.out.println("Dirección: " + getDireccion());
         System.out.println("Validez: " + isEsNoValido());
-        System.out.println("Dirección: " + getFormato());
-        System.out.println("Dirección: " + getPrecioVenta());
+        System.out.println("Formato: " + getFormato());
+        System.out.println("Precio: " + getPrecioVenta());
     }
 
 }

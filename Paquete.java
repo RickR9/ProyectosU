@@ -42,8 +42,8 @@ public class Paquete extends Correo{
         System.out.println("Es Express: " + isEsExpress());
         System.out.println("Dirección: " + getDireccion());
         System.out.println("Validez: " + isEsNoValido());
-        System.out.println("Dirección: " + getPrecioVenta());
-        System.out.println("Validez: " + getVolumen() + " cm^3");
+        System.out.println("Precio: " + getPrecioVenta());
+        System.out.println("Volumen: " + getVolumen() + " cm^3");
         }
 
     }

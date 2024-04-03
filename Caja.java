@@ -5,21 +5,21 @@ import java.util.List;
 
 public class Caja {
 
-    private List<Correo> correos;
+    private List<Correo> bandeja;
 
     public Caja() {
-        this.correos = new ArrayList<>();
+        this.bandeja = new ArrayList<>();
     }
 
     public void agregarCorreo(Correo nuevoCorreo) {
-        correos.add(nuevoCorreo);
+        bandeja.add(nuevoCorreo);
     }
 
     public double calculateImporteTotalCorreos(){
         
         double total = 0;
 
-        for (Correo correo : correos){
+        for (Correo correo : bandeja){
             total += correo.calculateImporteTotal();
         }
         return total;
@@ -28,7 +28,7 @@ public class Caja {
     public void verDetalleCorreos(){
 
         System.out.println("Detalle de los correos");
-        for (Correo correo : correos){
+        for (Correo correo : bandeja){
             correo.verDetalle();
         }
     }
@@ -36,7 +36,7 @@ public class Caja {
     public int obtenerCorreosInvalidos(){
 
         int ce = 0;
-        for (Correo correo : correos){
+        for (Correo correo : bandeja){
             if (correo.isEsNoValido()==false) {
                 ce++;
             }
