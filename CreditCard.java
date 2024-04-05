@@ -1,6 +1,6 @@
 package Semana3;
 
-public class CreditCard {
+public class CreditCard extends Payment {
     private String name;
     private String type;
     private String expDate;
@@ -31,6 +31,7 @@ public class CreditCard {
         this.authorized = authorized;
     }
 
+    @Override
     public float calculateTotalAmount() {
         System.out.println("Estoy pagando con tarjeta de credito");
         return 0;

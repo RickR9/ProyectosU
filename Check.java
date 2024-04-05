@@ -1,6 +1,6 @@
 package Semana3;
 
-public class Check {
+public class Check extends Payment {
     private String name;
     private String bankId;
     private boolean authorized;
@@ -24,6 +24,7 @@ public class Check {
         this.authorized = authorized;
     }
 
+    @Override
     public float calculateTotalAmount(){
 
         System.out.println("Estoy pagando con cheque.");
